@@ -3,4 +3,4 @@
 Member1: Samuel Blau
 Member2: Lily Maloney
 Member3: Rachel West
-Member4: Nick Strawser
+Member4: Nick Strawser (merge test)
