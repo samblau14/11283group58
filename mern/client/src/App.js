@@ -8,18 +8,20 @@ import Navbar from "./components/navbar";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import RecordList from "./components/recordList";
+import Footer from "./components/footer";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Route exact path="/">
+      {/* <Route exact path="/">
         <RecordList />
-      </Route>
+      </Route> */}
       <Route path="/edit/:id" component={Edit} />
       <Route path="/create">
         <Create />
       </Route>
+      <Footer />
     </div>
   );
 };
