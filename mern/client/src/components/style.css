@@ -1,0 +1,18 @@
+.footerStyle 
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #b2bfde;
+    width: 100%;
+    text-align: center;
+ }
+
+ .alignLeft
+ {
+    float: left;
+ }
+ .alignRight
+ {
+    float: right;
+ }
