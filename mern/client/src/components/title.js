@@ -7,17 +7,13 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
-const Footer = () => 
+import titleImg from '../assets/logo.svg'
+
+const Title = () => 
 {
     return (
-        <div>
-            <b>
-                <font face="helvetica" color="black">
-                    Team Everest | 2021
-                </font>
-            </b>
-        </div>
-      );
+        <img src={titleImg} className="titleStyle"/>
+    );
 };
 
-export default Footer;
+export default Title;

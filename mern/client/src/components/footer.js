@@ -7,17 +7,13 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
+import footerImg from '../assets/footer.svg'
+
 const Footer = () => 
 {
     return (
-        <div className="footerStyle">
-            <b>
-                <font face="helvetica" color="white">
-                    Team Everest | 2021
-                </font>
-            </b>
-        </div>
-      );
+        <img src={footerImg} className="footerStyle"/>
+    );
 };
 
 export default Footer;
