@@ -12,7 +12,12 @@ import footerImg from '../assets/footer.svg'
 const Footer = () => 
 {
     return (
-        <img src={footerImg} className="footerStyle"/>
+        <div>
+            <br /><br /><br />
+            <br /><br /><br />
+            <br /><br /><br />
+            <img src={footerImg} className="footerStyle"/>
+        </div>
     );
 };
 

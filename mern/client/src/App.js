@@ -18,8 +18,17 @@ import Alert from 'react-bootstrap/Alert';
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <br /><br /><br />
+      <br /><br /><br />
       <Title />
+
+      <Route exact path="/">
+        <Route exact path="/">
+        </Route>
+      </Route>
+      <Route path="/edit/:id" component={Edit} />
+      <Route path="/create">
+      </Route>
 
       <FirstPage />
 
