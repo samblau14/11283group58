@@ -7,12 +7,16 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
+import Title from './title';
+import Button from './buttons';
+
 import Earth from '../assets/earth.svg'
 
 const firstPage = () => 
 {
     return (
         <div>
+
             <br /><br /><br />
             <br /><br /><br />
             <div class="alert alertCustom" role="alert">
@@ -24,13 +28,62 @@ const firstPage = () =>
                 </b></h2>
             </div>
 
-            <br /><br /><br />
-            <br /><br /><br />
+            <br /><br />
+            <br /><br />
 
             <div>
                 <img src={Earth} 
                 className="titleStyle" className="earthStyle"/>
             </div>
+
+            <br /><br />
+            <br />
+
+            <div>
+                <h1 className="centerTextBorder"><b>
+                    Take the quiz now!
+                </b></h1>
+            </div>
+
+            <br /><br />
+            <br /><br />
+
+            <Button />
+
+            <br /><br /><br />
+            <br /><br /><br />
+
+            <div>
+                
+            </div>
+
+            <br /><br /><br />
+            <br /><br /><br />
+
+            <div>
+                <h1 className="centerTextBorder"><b>
+                    Our Mission
+                </b></h1>
+            </div>
+
+            <br />
+
+            <div class="alert alertCustom" role="alert">
+                <h2><b>
+                   As people, we have a responcibility to take care of the planet
+                    we live on. 
+                    <br />
+                    We want to be able to help users improve their
+                    carbon footprint by looking at daily routine habits that affect
+                    water usage, carbon emmissions, and waste
+                    
+                    <br />
+                    providing
+                    feedback as to how to most quickly reduce their enviromental
+                    impact.
+                </b></h2>
+            </div>
+
         </div>
     );
 };
