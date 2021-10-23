@@ -7,7 +7,7 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
-import footerImg from '../assets/footer.svg'
+import footerImg from '../assets/footer.svg';
 
 const Footer = () => 
 {

@@ -8,15 +8,17 @@ import './style.css';
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import titleImg from '../assets/logo.svg'
+import startButton from '../assets/beginButton.svg';
 
-const Title = () => 
+const Button = () => 
 {
     return (
-        <Link to="./">
-            <img src={titleImg} className="titleStyle"/>
-        </Link>
+        <div>
+            <Link to="/survey">
+                <button className="buttonFormat" /> 
+            </Link>
+        </div>
     );
 };
 
-export default Title;
+export default Button;

@@ -29,13 +29,13 @@
  }
  .earthStyle
  {
-   position: relative;
-   left: 47.5%;
+    position: relative;
+    left: 45%;
 
-   width: 5%;
-   height: auto;
+    width: 10%;
+    height: auto;
 
-   -webkit-user-select: none;
+    -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
@@ -50,11 +50,71 @@
    width: 80%;
 
    background-color:#c8e3da;
-   /* background-image: url(../assets/logo.svg); */ /* FIX ME: ADD IMAGE */
+   box-shadow: 
+   10px 10px #AABBBB,
+   -10px 10px #AABBBB;
 
    text-align: center;
    font-family: Arial, Helvetica, sans-serif;
 
-
    color:#40579a;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
  }
+
+ .buttonFormat
+ {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 22.6vh;
+    height: 8.9vh;
+
+    background-image: url(../assets/beginButton.svg);
+    background-size: 100%;
+
+    padding: 0;
+    border: none;
+ }
+ .buttonFormat:hover
+ {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.1vh;
+
+  width: 22.6vh;
+  height: 8.9vh;
+
+  background-image: url(../assets/beginButton_highlighted.svg);
+  background-size: 100%;
+
+  padding: 0;
+  border: none;
+ }
+
+ .centerTextBorder
+ {
+    text-align: center;
+
+    color: #67ab62;
+
+    text-shadow:
+		-2px -2px 0 white,
+		2px -2px 0 white,
+		-2px 2px 0 white,
+		2px 2px 0 white;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
