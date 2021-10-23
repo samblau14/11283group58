@@ -10,7 +10,8 @@ import { NavLink } from "react-router-dom";
 import Title from './title';
 import Button from './buttons';
 
-import Earth from '../assets/earth.svg'
+import Earth from '../assets/earth.svg';
+import Dots from '../assets/dots.svg';
 
 const firstPage = () => 
 {
@@ -23,6 +24,7 @@ const firstPage = () =>
                <h2><b>
                     What would happen if everybody followed the same daily habits as you?
                     <br />
+                    <br />
                     Learn more about your enviromental impact and carbon footprint by taking
                     a simple survey
                 </b></h2>
@@ -32,8 +34,7 @@ const firstPage = () =>
             <br /><br />
 
             <div>
-                <img src={Earth} 
-                className="titleStyle" className="earthStyle"/>
+                <img src={Earth} className="earthStyle" />
             </div>
 
             <br /><br />
@@ -54,7 +55,7 @@ const firstPage = () =>
             <br /><br /><br />
 
             <div>
-                
+                <img src={Dots} className="dotsStyle" />
             </div>
 
             <br /><br /><br />
@@ -73,9 +74,10 @@ const firstPage = () =>
                    As people, we have a responcibility to take care of the planet
                     we live on. 
                     <br />
+                    <br />
                     We want to be able to help users improve their
                     carbon footprint by looking at daily routine habits that affect
-                    water usage, carbon emmissions, and waste
+                    water usage, carbon emmissions, and waste,
                     
                     <br />
                     providing

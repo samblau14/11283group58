@@ -8,14 +8,12 @@ import './style.css';
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import startButton from '../assets/beginButton.svg';
-
 const Button = () => 
 {
     return (
         <div>
             <Link to="/survey">
-                <button className="buttonFormat" /> 
+                <button className="buttonFormat" onClick="window.scrollTo(0, 0);" /> 
             </Link>
         </div>
     );

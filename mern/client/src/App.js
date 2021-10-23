@@ -14,6 +14,7 @@ import Footer from './components/footer';
 import FirstPage from './components/firstPage';
 import Title from "./components/title";
 
+import footerImg from './assets/footer.svg';
 
 const App = () => {
   return (
