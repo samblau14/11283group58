@@ -13,13 +13,19 @@ const firstPage = () =>
 {
     return (
         <div>
+            <br /><br /><br />
+            <br /><br /><br />
             <div class="alert alertCustom" role="alert">
-               <p2><b>
-                   What would happen if everybody followed the same daily habits as you?
-                   Learn more about your enviromental impact and carbon footprint by taking
+               <h2><b>
+                    What would happen if everybody followed the same daily habits as you?
+                    <br />
+                    Learn more about your enviromental impact and carbon footprint by taking
                     a simple survey
-                </b></p2>
+                </b></h2>
             </div>
+
+            <br /><br /><br />
+            <br /><br /><br />
 
             <div>
                 <img src={Earth} 
