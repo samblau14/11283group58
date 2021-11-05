@@ -12,9 +12,8 @@ import Create from "./components/create";
 import RecordList from "./components/recordList";
 import Footer from './components/footer';
 import FirstPage from './components/firstPage';
+import Survey from './components/surveyPage';
 import Title from "./components/title";
-
-import footerImg from './assets/footer.svg';
 
 const App = () => {
   return (
@@ -29,12 +28,20 @@ const App = () => {
       </Route>
 
       <Route path="/edit/:id">
-        <Edit />
+
+
+        {/* <Edit /> */}
       </Route>
 
       <Route path="/survey">
-        <Create />
-        <RecordList />
+        <Survey />
+        
+        {/* <Create />
+        <RecordList /> */}
+      </Route>
+
+      <Route path="/result/:id">
+        {/* hehe */}
       </Route>
 
       </Switch>
