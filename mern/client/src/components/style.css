@@ -134,10 +134,34 @@
     user-select: none;
   }
 
-  .surveySize
+  .inputNameSize
   {
-      margin-left: auto;
-      margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 
-     width: 20%;
+    width: 25%;
+  }
+  .surveyCenter
+  {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .surveyWidth
+  {
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+    background-color: #FFFFFF88;
+    border-radius: 1.5vw;
+
+    width: 100%;
+  }
+  .titleHeader
+  {
+    color: #67ab62;
   }
