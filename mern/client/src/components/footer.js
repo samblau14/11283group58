@@ -16,6 +16,8 @@ const Footer = () =>
             <br /><br /><br />
             <br /><br /><br />
             <br /><br /><br />
+            <br /><br /><br />
+            
             <img src={footerImg} className="footerStyle"/>
         </div>
     );
