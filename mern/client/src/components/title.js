@@ -8,7 +8,7 @@ import './style.css';
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import titleImg from '../assets/logo.svg'
+import titleImg from '../assets/logo.svg';
 
 const Title = () => 
 {

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
@@ -7,7 +8,6 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
-import Title from './title';
 import Button from './buttons';
 
 import Earth from '../assets/earth.svg';
@@ -20,6 +20,7 @@ const firstPage = () =>
 
             <br /><br /><br />
             <br /><br /><br />
+            
             <div class="alert alertCustom" role="alert">
                <h2><b>
                     What would happen if everybody followed the same daily habits as you?
@@ -47,9 +48,13 @@ const firstPage = () =>
             </div>
 
             <br /><br />
-            <br /><br />
 
-            <Button />
+            <div>
+                <Button />
+            </div>
+
+            <br /><br />
+            <br /><br />
 
             <br /><br /><br />
             <br /><br /><br />
@@ -71,7 +76,7 @@ const firstPage = () =>
 
             <div class="alert alertCustom" role="alert">
                 <h2><b>
-                   As people, we have a responcibility to take care of the planet
+                   As people, we have a responsibility to take care of the planet
                     we live on. 
                     <br />
                     <br />

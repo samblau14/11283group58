@@ -73,7 +73,7 @@ class Edit extends Component {
       )
       .then((res) => console.log(res.data));
 
-    this.props.history.push("/");
+    this.props.history.push("/survey");
   }
  
   // This following section will display the update-form that takes the input from the user to update the data.
