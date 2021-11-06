@@ -123,7 +123,9 @@
   width: 22.6vh;
   height: 8.9vh;
 
-  background-image: url(../assets/beginButton_highlighted.svg);
+  background-image: url(../assets/begin_button_new.svg);
+  filter: brightness(1.1);
+
   background-size: 100%;
   border-radius: 0.5vw;
 
@@ -131,6 +133,41 @@
   border: none;
  }
 
+ .buttonFormat2
+ {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 22.6vh;
+  height: 8.9vh;
+  background-size: 100%;
+  border-radius: 0.5vw;
+
+  padding: 0;
+  border: none;
+ }
+.buttonFormat2:hover
+{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.1vh;
+  margin-bottom: -0.1vh;
+
+  width: 22.6vh;
+  height: 8.9vh;
+  background-size: 100%;
+  border-radius: 0.5vw;
+
+  filter: brightness(1.1);
+
+  padding: 0;
+  border: none;
+}
+ 
  .centerTextBorder
  {
     text-align: center;
