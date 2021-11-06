@@ -33,6 +33,7 @@ class surveyPage extends Component {
         this.onChangeQ3 = this.onChangeQ3.bind(this);
         this.onChangeQ4 = this.onChangeQ4.bind(this);
         this.onChangeQ5 = this.onChangeQ5.bind(this);
+        this.onChangeQ6 = this.onChangeQ6.bind(this);
 
         this.state = {
             user_name: '',
@@ -80,6 +81,11 @@ class surveyPage extends Component {
             question_5: e.target.value,
         })
     }
+    onChangeQ6(e) {
+        this.setState ({
+            question_6: e.target.value,
+        })
+    }
 
     displayStates() {
         console.log('User Name: ', this.state.user_name, 
@@ -87,7 +93,8 @@ class surveyPage extends Component {
                     "\nQ2: ", this.state.question_2,
                     "\nQ3: ", this.state.question_3,
                     "\nQ4: ", this.state.question_4,
-                    "\nQ5: ", this.state.question_5)
+                    "\nQ5: ", this.state.question_5,
+                    "\nQ6: ", this.state.question_6)
     }
     
     render() {
@@ -134,7 +141,7 @@ class surveyPage extends Component {
 
                     <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
                         <RangeSlider
-                        tooltip='auto'
+                        tooltip='on'
                         tooltipPlacement='bottom'
                         value={this.state.question_1}
                         onChange={this.onChangeQ1}
@@ -161,7 +168,7 @@ class surveyPage extends Component {
 
                     <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
                         <RangeSlider
-                        tooltip='auto'
+                        tooltip='on'
                         tooltipPlacement='bottom'
                         value={this.state.question_2}
                         onChange={this.onChangeQ2}
@@ -209,8 +216,8 @@ class surveyPage extends Component {
                                 label="Gas Car"
                                 name="group1"
                                 type="radio"
-                                value="Gas Car"
-                                checked={this.state.question_3 === 'Gas Car'}
+                                value="GasCar"
+                                checked={this.state.question_3 === 'GasCar'}
                                 onChange={this.onChangeQ3}
                                 style={{
                                     fontSize: 'x-large',
@@ -281,7 +288,7 @@ class surveyPage extends Component {
 
                     <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
                         <RangeSlider
-                        tooltip='auto'
+                        tooltip='on'
                         tooltipPlacement='bottom'
                         value={this.state.question_4}
                         onChange={this.onChangeQ4}
@@ -308,7 +315,7 @@ class surveyPage extends Component {
 
                     <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
                         <RangeSlider
-                        tooltip='auto'
+                        tooltip='on'
                         tooltipPlacement='bottom'
                         value={this.state.question_5}
                         onChange={this.onChangeQ5}
@@ -318,6 +325,107 @@ class surveyPage extends Component {
                         size='lg'
                         variant='success'
                         />
+                    </Container>
+
+                    <br /><br />
+
+                </Container>
+
+                <br /><br />
+                <h2 className="titleHeader" style={{ marginBottom: '-1.5vw', marginLeft: '1vw'}}><b>
+                    Food
+                </b></h2>
+
+                <Container className="surveyWidth">
+                    {/* question #6 */}
+                    <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                        <h3 style={{color: '#67ab62'}}><b>
+                            6)&nbsp;
+                        </b></h3> 
+
+                        <h3 style={{color: '#40579a'}}><b>
+                            Which diet below most closely matches your lifestyle?
+                        </b></h3>
+                    </Row>
+
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <div style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="High Meat Consumption"
+                                name="group2"
+                                type="radio"
+                                value="HighMeat"
+                                checked={this.state.question_6 === 'HighMeat'}
+                                onChange={this.onChangeQ6}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Average Meat Consumption"
+                                name="group2"
+                                type="radio"
+                                value="AverageMeat"
+                                checked={this.state.question_6 === 'AverageMeat'}
+                                onChange={this.onChangeQ6}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Pescatarian / No Red Meat"
+                                name="group2"
+                                type="radio"
+                                value="Pescatarian"
+                                checked={this.state.question_6 === 'Pescatarian'}
+                                onChange={this.onChangeQ6}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Vegetarian"
+                                name="group2"
+                                type="radio"
+                                value="Vegetarian"
+                                checked={this.state.question_6 === 'Vegetarian'}
+                                onChange={this.onChangeQ6}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Vegan"
+                                name="group2"
+                                type="radio"
+                                value="Vegan"
+                                checked={this.state.question_6 === 'Vegan'}
+                                onChange={this.onChangeQ6}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                        </div>
                     </Container>
 
                     <br /><br />
