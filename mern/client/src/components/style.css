@@ -41,6 +41,20 @@
     -o-user-select: none;
     user-select: none;
  }
+ .imageTextStyle
+ {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+ }
  .dotsStyle
  {
    position: relative;
@@ -90,8 +104,9 @@
     width: 22.6vh;
     height: 8.9vh;
 
-    background-image: url(../assets/beginButton.svg);
+    background-image: url(../assets/begin_button_new.svg);
     background-size: 100%;
+    border-radius: 0.5vw;
 
     padding: 0;
     border: none;
@@ -110,6 +125,7 @@
 
   background-image: url(../assets/beginButton_highlighted.svg);
   background-size: 100%;
+  border-radius: 0.5vw;
 
   padding: 0;
   border: none;
@@ -139,7 +155,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    width: 25%;
+    width: 20%;
   }
   .surveyCenter
   {
@@ -156,7 +172,7 @@
     margin-top: 3%;
     margin-bottom: 3%;
 
-    background-color: #FFFFFF88;
+    background-color: #FFFFFF66;
     border-radius: 1.5vw;
 
     width: 100%;

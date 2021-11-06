@@ -12,6 +12,7 @@ import Button from './buttons';
 
 import Earth from '../assets/earth.svg';
 import Dots from '../assets/dots.svg';
+import TakeNowImg from '../assets/take_the_quiz_now.svg';
 
 const firstPage = () => 
 {
@@ -26,7 +27,7 @@ const firstPage = () =>
                     What would happen if everybody followed the same daily habits as you?
                     <br />
                     <br />
-                    Learn more about your enviromental impact and carbon footprint by taking
+                    Learn more about your environmental impact and carbon footprint by taking
                     a simple survey
                 </b></h2>
             </div>
@@ -42,9 +43,7 @@ const firstPage = () =>
             <br />
 
             <div>
-                <h1 className="centerTextBorder"><b>
-                    Take the quiz now!
-                </b></h1>
+                <img src={TakeNowImg} className="imageTextStyle" />
             </div>
 
             <br /><br />
@@ -86,7 +85,7 @@ const firstPage = () =>
                     
                     <br />
                     providing
-                    feedback as to how to most quickly reduce their enviromental
+                    feedback as to how to most quickly reduce their environmental
                     impact.
                 </b></h2>
             </div>

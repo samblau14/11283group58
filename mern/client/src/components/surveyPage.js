@@ -27,10 +27,14 @@ class surveyPage extends Component {
         this.onChangeNameField = this.onChangeNameField.bind(this);
         this.displayStates = this.displayStates.bind(this);
         this.onChangeQ1 = this.onChangeQ1.bind(this);
+        this.onChangeQ2 = this.onChangeQ2.bind(this);
+        this.onChangeQ3 = this.onChangeQ3.bind(this);
 
         this.state = {
             user_name: '',
             question_1: 0,
+            question_2: 0,
+            question_3: 0,
 
             record_id: null,
         }
@@ -50,9 +54,22 @@ class surveyPage extends Component {
             question_1: e.target.value,
         })
     }
+    onChangeQ2(e) {
+        this.setState({
+            question_2: e.target.value,
+        })
+    }
+    onChangeQ3(e) {
+        this.setState({
+            question_3: e.target.value,
+        })
+    }
 
     displayStates() {
-        console.log('States: ', this.state.user_name, "\nQ1: ", this.state.question_1)
+        console.log('User Name: ', this.state.user_name, 
+                    "\nQ1: ", this.state.question_1,
+                    "\nQ2: ", this.state.question_2,
+                    "\nQ3: ", this.state.question_3)
     }
     
     render() {
@@ -65,8 +82,8 @@ class surveyPage extends Component {
                     Input Name (optional)
                 </b></h3>
             <Container> 
-                <Container>
-                    <Row className="inputNameSize">
+                <Container className="inputNameSize">
+                    <Row>
                         <Form.Control 
                         type="userName" 
                         size="lg"
@@ -83,33 +100,107 @@ class surveyPage extends Component {
                 </b></h2>
 
                 <Container className="surveyWidth">
-                    <Row>
-                        <Col>
-                            <h3 style={{color: '#40579a'}}><b>
-                            1) How many times a week do you take out the trash?
-                            </b></h3>
 
-                            <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
-                                <RangeSlider
-                                tooltip='auto'
-                                tooltipPlacement='bottom'
-                                value={this.state.question_1}
-                                onChange={this.onChangeQ1}
-                                min={0}
-                                max={10}
-                                step={1}
-                                size='lg'
+                    <h3 style={{color: '#40579a'}}><b>
+                        1) About how many domestic flights do you take per year? (flights within the country)
+                    </b></h3>
+
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <RangeSlider
+                        tooltip='auto'
+                        tooltipPlacement='bottom'
+                        value={this.state.question_1}
+                        onChange={this.onChangeQ1}
+                        min={0}
+                        max={5}
+                        step={1}
+                        size='lg'
+                        />
+                    </Container>
+
+                    <br /><br />
+
+                    <h3 style={{color: '#40579a'}}><b>
+                        2) About how many international flights do you take per year? (flights outside the country)
+                    </b></h3>
+
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <RangeSlider
+                        tooltip='auto'
+                        tooltipPlacement='bottom'
+                        value={this.state.question_2}
+                        onChange={this.onChangeQ2}
+                        min={0}
+                        max={5}
+                        step={1}
+                        size='lg'
+                        />
+                    </Container>
+
+                    <br /><br />
+
+                    <h3 style={{color: '#40579a'}}><b>
+                        3) What type of car do you drive?
+                    </b></h3>
+
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <Row>
+                            <div style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                                <Form.Check
+                                inline
+                                label="None"
+                                name="group1"
+                                type="radio"
+                                value="None"
+                                checked={this.state.question_3 === 'None'}
+                                onChange={this.onChangeQ3}
                                 />
-                            </Container>
-                        </Col>
-                    </Row>
+                                <Form.Check
+                                inline
+                                label="Gas Car"
+                                name="group1"
+                                type="radio"
+                                value="Gas Car"
+                                checked={this.state.question_3 === 'Gas Car'}
+                                onChange={this.onChangeQ3}
+                                />
+                                <Form.Check
+                                inline
+                                label="Truck"
+                                name="group1"
+                                type="radio"
+                                value="Truck"
+                                checked={this.state.question_3 === 'Truck'}
+                                onChange={this.onChangeQ3}
+                                />
+                                <Form.Check
+                                inline
+                                label="Hybrid"
+                                name="group1"
+                                type="radio"
+                                value="Hybrid"
+                                checked={this.state.question_3 === 'Hybrid'}
+                                onChange={this.onChangeQ3}
+                                />
+                                <Form.Check
+                                inline
+                                label="Electric"
+                                name="group1"
+                                type="radio"
+                                value="Electric"
+                                checked={this.state.question_3 === 'Electric'}
+                                onChange={this.onChangeQ3}
+                                />
+                            </div>
+                        </Row>
+                    </Container>
+
+                    <br /><br />
+
                 </Container>
 
                 <Container>
-                    <Button 
-                    className="surveyCenter" 
-                    onClick={this.displayStates}
-                    >
+                    <Button onClick={this.displayStates}>
                         Submit
                     </Button>
                 </Container>
