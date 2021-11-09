@@ -1,5 +1,7 @@
 import React from "react";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // We use Route in order to define the different routes of our application
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -18,6 +20,7 @@ import Title from "./components/title";
 const App = () => {
   return (
     <div>
+      
       <br /><br /><br />
       <Title />
 
