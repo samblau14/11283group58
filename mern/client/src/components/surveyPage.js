@@ -18,6 +18,8 @@ import submitBtn from '../assets/submit_button.svg'
 
 import SurveySlider from './surveySlider'
 
+import axios from 'axios';
+
 
 class surveyPage extends Component {
     // call constructor to be able to store data
@@ -41,9 +43,11 @@ class surveyPage extends Component {
         this.onChangeQ13 = this.onChangeQ13.bind(this);
         this.onChangeQ14 = this.onChangeQ14.bind(this);
         this.onChangeQ15 = this.onChangeQ15.bind(this);
+        
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            user_name: '',
+            user_name: "",
             question_1: 0,
             question_2: 0,
             question_3: 0,
@@ -170,6 +174,73 @@ class surveyPage extends Component {
                     "\nQ14: ", this.state.question_14,
                     "\nQ15: ", this.state.question_15)
     }
+    
+// This function will handle the submission.
+  onSubmit(e) {
+    e.preventDefault();
+
+    // When post request is sent to the create url, axios will add a new record(newperson) to the database.
+    const newperson = {
+		user_name: this.state.user_name,
+		question_1:this.state.question_1,
+		question_2:this.state.question_2,
+		question_3:this.state.question_3,
+		question_4:this.state.question_4,
+		question_5:this.state.question_5,
+		question_6:this.state.question_6,
+		question_7:this.state.question_7,
+		question_8:this.state.question_8,
+		question_9:this.state.question_9,
+		question_10:this.state.question_10,
+		question_11:this.state.question_11,
+		question_12:this.state.question_12,
+		question_13:this.state.question_13,
+		question_14:this.state.question_14,
+		question_15:this.state.question_15,
+    };
+
+    axios
+      .post("http://localhost:5000/record/add", newperson)
+      .then((res) => console.log(res.data));
+
+    // We will empty the state after posting the data to the database
+    this.setState({
+      user_name: "",
+      question_1: "",
+      question_2: "",
+      question_3: "",
+      question_4: "",
+      question_5: "",
+      question_6: "",
+      question_7: "",
+      question_8: "",
+      question_9: "",
+      question_10: "",
+      question_11: "",
+      question_12: "",
+      question_13: "",
+      question_14: "",
+      question_15: "",
+    });
+    
+	console.log('User Name: ', this.state.user_name, 
+			"\nQ1: ", this.state.question_1,
+			"\nQ2: ", this.state.question_2,
+			"\nQ3: ", this.state.question_3,
+			"\nQ4: ", this.state.question_4,
+			"\nQ5: ", this.state.question_5,
+			"\nQ6: ", this.state.question_6,
+			"\nQ7: ", this.state.question_7,
+			"\nQ8: ", this.state.question_8,
+			"\nQ9: ", this.state.question_9,
+			"\nQ10: ", this.state.question_10,
+			"\nQ11: ", this.state.question_11,
+			"\nQ12: ", this.state.question_12,
+			"\nQ13: ", this.state.question_13,
+			"\nQ14: ", this.state.question_14,
+			"\nQ15: ", this.state.question_15)
+    
+  }
     
     render() {
         return (
@@ -1039,7 +1110,7 @@ class surveyPage extends Component {
                 <Container>
                     <img 
                     src={submitBtn} 
-                    onClick={this.displayStates}
+                    onClick={this.onSubmit}
                     className="buttonFormat2" 
                     />
                 </Container>
