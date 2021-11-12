@@ -40,9 +40,22 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    person_name: req.body.person_name,
-    person_position: req.body.person_position,
-    person_level: req.body.person_level,
+    user_name: req.body.person_level,
+    question_1: req.body.question_1,
+    question_2: req.body.question_2,
+    question_3: req.body.question_3,
+    question_4: req.body.question_4,
+    question_5: req.body.question_5,
+    question_6: req.body.question_6,
+    question_7: req.body.question_7,
+    question_8: req.body.question_8,
+    question_9: req.body.question_9,
+    question_10: req.body.question_10,
+    question_11 req.body.question_11,
+    question_12: req.body.question_12,
+    question_13: req.body.question_13,
+    question_14: req.body.question_14,
+    question_15: req.body.question_15,
   };
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -56,9 +69,21 @@ recordRoutes.route("/update/:id").post(function (req, response) {
   let myquery = { _id: ObjectId( req.params.id )};
   let newvalues = {
     $set: {
-      person_name: req.body.person_name,
-      person_position: req.body.person_position,
-      person_level: req.body.person_level,
+		user_name: req.body.person_level,
+		question_1: req.body.question_1,
+		question_3: req.body.question_3,
+		question_4: req.body.question_4,
+		question_5: req.body.question_5,
+		question_6: req.body.question_6,
+		question_7: req.body.question_7,
+		question_8: req.body.question_8,
+		question_9: req.body.question_9,
+		question_10: req.body.question_10,
+		question_11 req.body.question_11,
+		question_12: req.body.question_12,
+		question_13: req.body.question_13,
+		question_14: req.body.question_14,
+		question_15: req.body.question_15,
     },
   };
   db_connect
