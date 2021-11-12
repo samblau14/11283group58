@@ -15,6 +15,8 @@ import RecordList from "./components/recordList";
 import Footer from './components/footer';
 import FirstPage from './components/firstPage';
 import Survey from './components/surveyPage';
+import ResultsPage from "./components/resultsPage";
+import Credits from "./components/credits";
 import Title from "./components/title";
 
 const App = () => {
@@ -31,20 +33,19 @@ const App = () => {
       </Route>
 
       <Route path="/edit/:id">
-
-
         {/* <Edit /> */}
       </Route>
 
       <Route path="/survey">
         <Survey />
-        
-        {/* <Create />
-        <RecordList /> */}
       </Route>
 
-      <Route path="/result/:id">
-        {/* hehe */}
+      <Route path="/results/:id">
+        <ResultsPage />
+      </Route>
+
+      <Route path="/credits">
+        <Credits />
       </Route>
 
       </Switch>

@@ -13,7 +13,7 @@ import titleImg from '../assets/logo.svg';
 const Title = () => 
 {
     return (
-        <Link to="./">
+        <Link to="../">
             <img src={titleImg} className="titleStyle"/>
         </Link>
     );
