@@ -186,7 +186,7 @@ class surveyPage extends Component {
 		question_2:this.state.question_2,
 		question_3:this.state.question_3,
 		question_4:this.state.question_4,
-		question_5.:this.state.question_5,
+		question_5:this.state.question_5,
 		question_6:this.state.question_6,
 		question_7:this.state.question_7,
 		question_8:this.state.question_8,
