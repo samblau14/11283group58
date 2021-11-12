@@ -9,6 +9,7 @@ import './style.css';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 import { display, fontSize, spacing } from '@mui/system';
+import { Link } from "react-router-dom";
 
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
@@ -50,19 +51,19 @@ class surveyPage extends Component {
             user_name: "",
             question_1: 0,
             question_2: 0,
-            question_3: 0,
+            question_3: "",
             question_4: 0,
             question_5: 0,
-            question_6: 0,
-            question_7: 0,
-            question_8: 0,
-            question_9: 0,
-            question_10: 0,
+            question_6: "",
+            question_7: "",
+            question_8: "",
+            question_9: "",
+            question_10: "",
             question_11: 0,
-            question_12: 0,
-            question_13: 0,
-            question_14: 0,
-            question_15: 0,
+            question_12: "",
+            question_13: "",
+            question_14: "",
+            question_15: "",
 
             record_id: null,
         }
@@ -179,6 +180,24 @@ class surveyPage extends Component {
   onSubmit(e) {
     e.preventDefault();
 
+    // display the information before the states are changed
+    console.log('User Name: ', this.state.user_name, 
+            "\nQ1: ", this.state.question_1,
+            "\nQ2: ", this.state.question_2,
+            "\nQ3: ", this.state.question_3,
+            "\nQ4: ", this.state.question_4,
+            "\nQ5: ", this.state.question_5,
+            "\nQ6: ", this.state.question_6,
+            "\nQ7: ", this.state.question_7,
+            "\nQ8: ", this.state.question_8,
+            "\nQ9: ", this.state.question_9,
+            "\nQ10: ", this.state.question_10,
+            "\nQ11: ", this.state.question_11,
+            "\nQ12: ", this.state.question_12,
+            "\nQ13: ", this.state.question_13,
+            "\nQ14: ", this.state.question_14,
+            "\nQ15: ", this.state.question_15)
+
     // When post request is sent to the create url, axios will add a new record(newperson) to the database.
     const newperson = {
 		user_name: this.state.user_name,
@@ -206,43 +225,60 @@ class surveyPage extends Component {
     // We will empty the state after posting the data to the database
     this.setState({
       user_name: "",
-      question_1: "",
-      question_2: "",
+      question_1: 0,
+      question_2: 0,
       question_3: "",
-      question_4: "",
-      question_5: "",
+      question_4: 0,
+      question_5: 0,
       question_6: "",
       question_7: "",
       question_8: "",
       question_9: "",
       question_10: "",
-      question_11: "",
+      question_11: 0,
       question_12: "",
       question_13: "",
       question_14: "",
       question_15: "",
     });
     
-	console.log('User Name: ', this.state.user_name, 
-			"\nQ1: ", this.state.question_1,
-			"\nQ2: ", this.state.question_2,
-			"\nQ3: ", this.state.question_3,
-			"\nQ4: ", this.state.question_4,
-			"\nQ5: ", this.state.question_5,
-			"\nQ6: ", this.state.question_6,
-			"\nQ7: ", this.state.question_7,
-			"\nQ8: ", this.state.question_8,
-			"\nQ9: ", this.state.question_9,
-			"\nQ10: ", this.state.question_10,
-			"\nQ11: ", this.state.question_11,
-			"\nQ12: ", this.state.question_12,
-			"\nQ13: ", this.state.question_13,
-			"\nQ14: ", this.state.question_14,
-			"\nQ15: ", this.state.question_15)
-    
   }
     
     render() {
+        let canSubmit = (
+            this.state.question_3 !== "" &&
+            this.state.question_6 !== "" &&
+            this.state.question_7 !== "" &&
+            this.state.question_8 !== "" &&
+            this.state.question_9 !== "" &&
+            this.state.question_10 !== "" &&
+            this.state.question_12 !== "" &&
+            this.state.question_13 !== "" &&
+            this.state.question_14 !== "" &&
+            this.state.question_15 !== ""
+        );
+
+        let button;
+        let note;
+        
+        if (canSubmit) {
+            button =
+                <Link to={"/result/" + this.state.record_id}>
+                    <img 
+                    src={submitBtn} 
+                    // onClick={this.onSubmit}
+                    onClick={this.displayStates}
+                    className="buttonFormat2"
+                    />
+                </Link>
+        } else {
+            button =
+                <img 
+                src={submitBtn} 
+                className="buttonFormatGrayed"
+                />
+        }
+
         return (
             <div>
                 <br /><br />
@@ -1042,6 +1078,21 @@ class surveyPage extends Component {
                             <Row>
                                 <Form.Check
                                 inline
+                                label="Never"
+                                name="group11"
+                                type="radio"
+                                value="Never"
+                                checked={this.state.question_15 === 'Never'}
+                                onChange={this.onChangeQ15}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
                                 label="Weekly"
                                 name="group11"
                                 type="radio"
@@ -1107,12 +1158,10 @@ class surveyPage extends Component {
                 </Container>
                 
                 <br /><br />
+
+                {/* displays the correct button depending on if the user submitted all required fields or not */}
                 <Container>
-                    <img 
-                    src={submitBtn} 
-                    onClick={this.onSubmit}
-                    className="buttonFormat2" 
-                    />
+                    {button}
                 </Container>
 
             </Container>
