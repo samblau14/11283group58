@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Box from '@mui/material/Box'
 
 import axios from 'axios';
 
@@ -23,9 +25,58 @@ class resultsPage extends Component {
 
     render() {
         return (
-            <div>
-                
-            </div>
+            <Container style={{marginTop: '10vh'}}>
+                <Row>
+                    <h1 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
+                        Here are your results!
+                    </b></h1> 
+                </Row>
+
+                <Box className='resultsBox'>
+                    data goes here
+                </Box>
+
+                <Row>
+                    <h2 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
+                        Thanks for your interest in improving the world around us!
+                    </b></h2> 
+                </Row>
+
+                <Row>
+                    <Col>
+                        <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'right'}}>
+                            Print your results
+                        </h3>
+                    </Col>
+                    <Col>
+                        <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left'}}>
+                            <button>here</button>
+                        </h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'right'}}>
+                            Share the survey with others:
+                        </h3>
+                    </Col>
+                    <Col>
+                        <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left'}}>
+                            worldlikeme.com
+                            <button>copy</button>
+                        </h3>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <h2 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
+                        Curious about how your statistics are calculated?
+                        <br /><br/>
+                        Learn more&nbsp;
+                        <button>here</button>
+                    </b></h2>
+                </Row>
+            </Container>
         );
     }
 }

@@ -238,3 +238,11 @@
   {
     color: #67ab62;
   }
+  .resultsBox
+  {
+    background-color: white;
+    outline: #6c709f solid 1.5vh;
+    padding: 1.5vh;
+
+    margin-top: 5vh;
+  }
