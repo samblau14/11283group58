@@ -240,9 +240,62 @@
   }
   .resultsBox
   {
-    background-color: white;
-    outline: #6c709f solid 1.5vh;
+    background-image: url(../assets/results_bg.png);
+    background-size: 100%;
+    height: 1015px;
+
     padding: 1.5vh;
 
+    margin-bottom: 5vh;
+
+    box-shadow: 
+   15px 15px #AABBBB,
+   -15px 15px #AABBBB;
+
     margin-top: 5vh;
+  }
+  .hereButtons
+  {
+    outline: transparent;
+    border: none;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+
+    box-shadow: 
+		0px -5px 0 #c1cbe4,
+		0px 5px 0 #a7b2d4;
+
+    font-size: 3vh;
+
+    background-color: #b2bfde;
+    color: #435ead;
+  }
+  .hereButtons:hover
+  {
+    outline: transparent;
+    border: none;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+
+    box-shadow: 
+		0px -5px 0 #c1cbe4,
+		0px 5px 0 #a7b2d4;
+
+    font-size: 3vh;
+
+    background-color: #b2bfde;
+    color: #435ead;
+    filter: brightness(1.05);
   }

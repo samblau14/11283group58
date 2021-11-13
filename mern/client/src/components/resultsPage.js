@@ -20,7 +20,13 @@ import axios from 'axios';
 
 class resultsPage extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+
+        this.copySiteLink = this.copySiteLink.bind(this);
+    }
+
+    copySiteLink(e) {
+
     }
 
     render() {
@@ -28,12 +34,24 @@ class resultsPage extends Component {
             <Container style={{marginTop: '10vh'}}>
                 <Row>
                     <h1 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
+                        Hello, [name] <br/>
                         Here are your results!
                     </b></h1> 
                 </Row>
 
                 <Box className='resultsBox'>
-                    data goes here
+                    <h4 
+                    style=
+                        {{
+                            color: '#c0c4eb',
+                            padding: '1.5vh',
+                            position: 'relative',
+                            left: '0%',
+                            bottom: '-95%',
+                        }}
+                    >
+                        World Like Me || Team Everest
+                    </h4>
                 </Box>
 
                 <Row>
@@ -42,7 +60,7 @@ class resultsPage extends Component {
                     </b></h2> 
                 </Row>
 
-                <Row>
+                <Row style={{marginBottom: '-1vh'}}>
                     <Col>
                         <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'right'}}>
                             Print your results
@@ -50,31 +68,36 @@ class resultsPage extends Component {
                     </Col>
                     <Col>
                         <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left'}}>
-                            <button>here</button>
+                            <button className='hereButtons'>Here</button>
                         </h3>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'right'}}>
-                            Share the survey with others:
+                            Share the survey with others
                         </h3>
                     </Col>
                     <Col>
-                        <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left'}}>
-                            worldlikeme.com
-                            <button>copy</button>
-                        </h3>
+                        <h4 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left', marginTop: '2vh'}}>
+                            <input value='worldlikeme.com' readOnly style={{outline: 'none', border: '0', padding: '1.3vh', marginRight: '1.5vh'}}/>
+                            <button className='hereButtons'>copy</button>
+                        </h4>
                     </Col>
                 </Row>
+
+                <br /><br />
 
                 <Row>
                     <h2 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
                         Curious about how your statistics are calculated?
                         <br /><br/>
                         Learn more&nbsp;
-                        <button>here</button>
-                    </b></h2>
+                        </b>
+                        <Link to="/credits">
+                        <button className='hereButtons'>Here</button>
+                        </Link>
+                    </h2>
                 </Row>
             </Container>
         );
