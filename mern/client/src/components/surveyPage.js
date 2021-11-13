@@ -263,7 +263,7 @@ class surveyPage extends Component {
         
         if (canSubmit) {
             button =
-                <Link to={"/result/" + this.state.record_id}>
+                <Link to={"/results/" + this.state.record_id}>
                     <img 
                     src={submitBtn} 
                     // onClick={this.onSubmit}
