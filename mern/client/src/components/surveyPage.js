@@ -46,6 +46,8 @@ class surveyPage extends Component {
         this.onChangeQ13 = this.onChangeQ13.bind(this);
         this.onChangeQ14 = this.onChangeQ14.bind(this);
         this.onChangeQ15 = this.onChangeQ15.bind(this);
+        this.onChangeQ16 = this.onChangeQ16.bind(this);
+        this.onChangeQ17 = this.onChangeQ17.bind(this);
         
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -67,6 +69,8 @@ class surveyPage extends Component {
             question_13: "",
             question_14: "",
             question_15: "",
+            question_16: "0",
+            question_17: "",
             submitted: false,
         }
     }
@@ -157,6 +161,16 @@ class surveyPage extends Component {
             question_15: e.target.value,
         })
     }
+    onChangeQ16(e) {
+        this.setState ({
+            question_16: e.target.value,
+        })
+    }
+    onChangeQ17(e) {
+        this.setState ({
+            question_17: e.target.value,
+        })
+    }
     
 
     displayStates() {
@@ -175,7 +189,9 @@ class surveyPage extends Component {
                     "\nQ12: ", this.state.question_12,
                     "\nQ13: ", this.state.question_13,
                     "\nQ14: ", this.state.question_14,
-                    "\nQ15: ", this.state.question_15)
+                    "\nQ15: ", this.state.question_15,
+                    "\nQ16: ", this.state.question_16,
+                    "\nQ17: ", this.state.question_17)
     }
 
 // This function will handle the submission.
@@ -203,7 +219,9 @@ class surveyPage extends Component {
             "\nQ12: ", this.state.question_12,
             "\nQ13: ", this.state.question_13,
             "\nQ14: ", this.state.question_14,
-            "\nQ15: ", this.state.question_15)
+            "\nQ15: ", this.state.question_15,
+            "\nQ16: ", this.state.question_16,
+            "\nQ17: ", this.state.question_17)
 
     // When post request is sent to the create url, axios will add a new record(newperson) to the database.
     const newperson = {
@@ -223,6 +241,8 @@ class surveyPage extends Component {
 		question_13:this.state.question_13,
 		question_14:this.state.question_14,
 		question_15:this.state.question_15,
+        question_16:this.state.question_16,
+        question_17:this.state.question_17,
     };
 
     axios
@@ -251,6 +271,8 @@ class surveyPage extends Component {
       question_13: "",
       question_14: "",
       question_15: "",
+      question_16: "0",
+      question_17: "",
 
       submitted: true,
     });
@@ -267,7 +289,8 @@ class surveyPage extends Component {
             this.state.question_12 !== "" &&
             this.state.question_13 !== "" &&
             this.state.question_14 !== "" &&
-            this.state.question_15 !== "" ||
+            this.state.question_15 !== "" &&
+            this.state.question_17 !== "" ||
             this.state.submitted
         );
 
@@ -887,7 +910,7 @@ class surveyPage extends Component {
                         stepVal={1}
                     />
 
-                    <br /><br />
+                    <br />
 
                     {/* question #12 */}
                     <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
@@ -1167,8 +1190,75 @@ class surveyPage extends Component {
 
                     <br /><br />
 
+
                 </Container>
                 
+                <br />
+                <h2 className="titleHeader" style={{ marginBottom: '-1.5vw', marginLeft: '1vw'}}><b>
+                    Living
+                </b></h2>
+
+                <Container className="surveyWidth">
+                    {/* question #16 */}
+                    <SurveySlider
+                        number='16)' 
+                        questionName='How many people live in your home (including yourself)?'
+                        sliderValue={this.state.question_16}
+                        updateValue={this.onChangeQ16}
+                        minVal={0}
+                        maxVal={8}
+                        stepVal={1}
+                    />
+
+                    <br />
+
+                    <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                        <h3 style={{color: '#67ab62'}}><b>
+                            17)&nbsp;
+                        </b></h3> 
+
+                        <h3 style={{color: '#40579a'}}><b>
+                            Do you recycle?
+                        </b></h3>
+                    </Row>
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <div style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Yes"
+                                name="group12"
+                                type="radio"
+                                value="Yes"
+                                checked={this.state.question_17 === 'Yes'}
+                                onChange={this.onChangeQ17}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="No"
+                                name="group12"
+                                type="radio"
+                                value="No"
+                                checked={this.state.question_17 === 'No'}
+                                onChange={this.onChangeQ17}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+
+                            <br /><br />
+                        </div>
+                    </Container>
+
+                </Container>
                 <br /><br />
 
                 {/* displays the correct button depending on if the user submitted all required fields or not */}
