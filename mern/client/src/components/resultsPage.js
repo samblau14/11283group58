@@ -58,6 +58,7 @@ class resultsPage extends Component {
             num_earths_percent: 0,
             num_florida_percent: 0,
             num_USA_percent: 0,
+            
           };
     }
 
@@ -352,6 +353,38 @@ class resultsPage extends Component {
             name = "Guest";
         else
             name = this.state.person_name;
+            
+        let usa_str;
+        let florida_str;
+        let earth_str;
+        let usa_num;
+        let florida_num;
+        let earth_num;
+        
+        if (this.state.num_USA_percent < 100) {
+		usa_str = "% less than the average American's current carbon footprint! Great job!"
+		usa_num = 100 - this.state.num_USA_percent;
+		}
+		else {
+		usa_str = "x the average American's current carbon footprint"
+		usa_num = this.state.num_USA_percent / 100;
+		}
+		if (this.state.num_USA_percent < 100) {
+		florida_str = "% less than the average Floridian's current carbon footprint! Great job!"
+		florida_num = 100 - this.state.num_florida_percent;
+		}
+		else {
+		florida_str = "x the average Floridian's current carbon footprint"
+		florida_num = this.state.num_florida_percent / 100;
+		}
+		if (this.state.num_USA_percent < 100) {
+		earth_str = "% less than the average human's current carbon footprint! Great job!"
+		earth_num = 100 - this.state.num_earths_percent;
+		}
+		else {
+		earth_str = "x the average human's current carbon footprint"
+		earth_num = this.state.num_earths_percent / 100;
+		}
 
         return (
             <div>
@@ -383,13 +416,11 @@ class resultsPage extends Component {
                         If everyone in the world shared the same lifestyle as you,
                     </h1>
                     <Row>
-                        <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '5%', textAlign: 'right', marginTop: '3%'}}>
-                            the world's ecological footprint would be <b style={{color: '#ffffff'}}>{this.state.num_USA_percent}%</b>
+                        <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '5%', textAlign: 'left', marginTop: '3%'}}>
+                            it would take&nbsp;<b style={{color: '#ffffff'}}>{this.state.num_earths_percent/100} earths </b> to sustain everyone's living habits
                         </h1>
                     </Row>
-                    <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '5%', textAlign: 'right'}}>
-                        of the amount it currently is
-                    </h1>
+                    
 
                     <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '7%', textAlign: 'center', fontSize: '250%'}}>
                         <Col>
@@ -439,13 +470,13 @@ class resultsPage extends Component {
 
                     <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', fontSize: '200%', padding: '5%', textAlign: 'center'}}>
                         <Col>
-                            Relative to the USA, you would use {this.state.num_USA_percent}% of the current carbon footprint
+                            Your carbon footprint is {usa_num}{usa_str}
                         </Col>
                         <Col>
-                            Relative to Florida, you would use {this.state.num_florida_percent}% of the current carbon footprint
+                            Your carbon footprint is {florida_num}{florida_str}
                         </Col>
                         <Col>
-                            Relative to the world, you would use {this.state.num_earths_percent}% of the current carbon footprint
+                            Your carbon footprint is {earth_num}{earth_str}
                         </Col>
                     </Row>
 
