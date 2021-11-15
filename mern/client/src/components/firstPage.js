@@ -33,13 +33,11 @@ const firstPage = () =>
             </div>
 
             <br /><br />
-            <br /><br />
 
             <div>
                 <img src={Earth} className="earthStyle" />
             </div>
 
-            <br /><br />
             <br />
 
             <div>
@@ -52,9 +50,6 @@ const firstPage = () =>
                 <Button />
             </div>
 
-            <br /><br />
-            <br /><br />
-
             <br /><br /><br />
             <br /><br /><br />
 
@@ -62,7 +57,6 @@ const firstPage = () =>
                 <img src={Dots} className="dotsStyle" />
             </div>
 
-            <br /><br /><br />
             <br /><br /><br />
 
             <div>
