@@ -24,15 +24,52 @@ class resultsPage extends Component {
     constructor(props) {
         super(props);
 
+        this.getIdentifier = this.getIdentifier.bind(this);
+        this.getRecords = this.getRecords.bind(this);
+        this.getRecordData = this.getRecordData.bind(this);
+
         this.state = {
+            records: [],
+            survey_ID: "",
             person_name: "",
           };
     }
 
-    // This will get the record based on the id from the database.
+    // called when component first boots up
     componentDidMount() {
+        this.getRecords();
+        window.scrollTo(0, 0);
+    }
+
+    getRecords() {
+        // put the records into the response state variable
+        console.log("getting records...");
+
         axios
-            .get("http://localhost:5000/record/" + this.props.match.params.id)
+        .get("http://localhost:5000/record/")
+        .then((response) => {
+        this.setState({ records: response.data }, this.getIdentifier);
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+    }
+
+    getIdentifier() {
+        console.log("getting identifier...");
+        console.log("record list length: " + this.state.records.length);
+
+        for (let i = 0; i < this.state.records.length; i++)
+            if (this.state.records[i].identifier == this.props.match.params.id)
+            {
+                console.log("found identifier")
+                this.setState({ survey_ID: this.state.records[i]._id }, this.getRecordData);
+            }
+    }
+
+    getRecordData() {
+        axios
+            .get("http://localhost:5000/record/" + this.state.survey_ID)
             .then((response) => {
                 this.setState({
                     person_name: response.data.user_name,
@@ -41,8 +78,6 @@ class resultsPage extends Component {
             .catch(function (error) {
                 console.log(error);
             });
-
-        window.scrollTo(0, 0);
     }
 
     render() {

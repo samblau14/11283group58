@@ -53,7 +53,7 @@ class surveyPage extends Component {
 
         this.state = {
             user_name: "",
-            data_id: 'default',
+            identifier: Math.floor(Math.random() * 50000),
             question_1: "0",
             question_2: "0",
             question_3: "",
@@ -71,6 +71,9 @@ class surveyPage extends Component {
             question_15: "",
             question_16: "0",
             question_17: "",
+
+            records: [],
+
             submitted: false,
         }
     }
@@ -171,7 +174,6 @@ class surveyPage extends Component {
             question_17: e.target.value,
         })
     }
-    
 
     displayStates() {
         console.log('User Name: ', this.state.user_name, 
@@ -191,7 +193,8 @@ class surveyPage extends Component {
                     "\nQ14: ", this.state.question_14,
                     "\nQ15: ", this.state.question_15,
                     "\nQ16: ", this.state.question_16,
-                    "\nQ17: ", this.state.question_17)
+                    "\nQ17: ", this.state.question_17,
+                    "\nIdentifier: ", this.state.identifier)
     }
 
 // This function will handle the submission.
@@ -218,11 +221,13 @@ class surveyPage extends Component {
             "\nQ14: ", this.state.question_14,
             "\nQ15: ", this.state.question_15,
             "\nQ16: ", this.state.question_16,
-            "\nQ17: ", this.state.question_17)
+            "\nQ17: ", this.state.question_17,
+            "\nIdentifier: ", this.state.identifier)
 
     // When post request is sent to the create url, axios will add a new record(newperson) to the database.
     const newperson = {
-		user_name: this.state.user_name,
+        user_name: this.state.user_name,
+        identifier:this.state.identifier,
 		question_1:this.state.question_1,
 		question_2:this.state.question_2,
 		question_3:this.state.question_3,
@@ -293,7 +298,9 @@ class surveyPage extends Component {
         
         if (canSubmit) {
             button =
-                <DelayLink delay= {2000} to={"/results/000000"}>
+                <DelayLink delay= {500}
+                    to={"/results/" + this.state.identifier}
+                >
                     <img
                     src={submitBtn} 
                     onClick={this.onSubmit}

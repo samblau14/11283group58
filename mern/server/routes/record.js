@@ -41,6 +41,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     user_name: req.body.user_name,
+    identifier: req.body.identifier,
     question_1: req.body.question_1,
     question_2: req.body.question_2,
     question_3: req.body.question_3,
@@ -72,6 +73,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
   let newvalues = {
     $set: {
 		user_name: req.body.person_level,
+    identifier: req.body.identifier,
 		question_1: req.body.question_1,
 		question_3: req.body.question_3,
 		question_4: req.body.question_4,
