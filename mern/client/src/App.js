@@ -40,9 +40,7 @@ const App = () => {
         <Survey />
       </Route>
 
-      <Route path="/results/:id">
-        <ResultsPage />
-      </Route>
+      <Route path="/results/:id" render={(props) => <ResultsPage {... props}/>} />
 
       <Route path="/credits">
         <Credits />
