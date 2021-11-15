@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import DelayLink from 'react-delay-link';
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
@@ -8,7 +9,6 @@ import './style.css';
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
-import { display, fontSize, spacing } from '@mui/system';
 import { Link } from "react-router-dom";
 
 import Form from 'react-bootstrap/Form'
@@ -20,9 +20,11 @@ import submitBtn from '../assets/submit_button.svg'
 import SurveySlider from './surveySlider'
 
 import axios from 'axios';
+import { withRouter } from "react-router";
 
 
 class surveyPage extends Component {
+
     // call constructor to be able to store data
     constructor(props) {
         super(props);
@@ -44,28 +46,32 @@ class surveyPage extends Component {
         this.onChangeQ13 = this.onChangeQ13.bind(this);
         this.onChangeQ14 = this.onChangeQ14.bind(this);
         this.onChangeQ15 = this.onChangeQ15.bind(this);
+        this.onChangeQ16 = this.onChangeQ16.bind(this);
+        this.onChangeQ17 = this.onChangeQ17.bind(this);
         
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             user_name: "",
-            question_1: 0,
-            question_2: 0,
+            data_id: 'default',
+            question_1: "0",
+            question_2: "0",
             question_3: "",
-            question_4: 0,
-            question_5: 0,
+            question_4: "0",
+            question_5: "0",
             question_6: "",
             question_7: "",
             question_8: "",
             question_9: "",
             question_10: "",
-            question_11: 0,
+            question_11: "0",
             question_12: "",
             question_13: "",
             question_14: "",
             question_15: "",
-
-            record_id: null,
+            question_16: "0",
+            question_17: "",
+            submitted: false,
         }
     }
 
@@ -155,6 +161,16 @@ class surveyPage extends Component {
             question_15: e.target.value,
         })
     }
+    onChangeQ16(e) {
+        this.setState ({
+            question_16: e.target.value,
+        })
+    }
+    onChangeQ17(e) {
+        this.setState ({
+            question_17: e.target.value,
+        })
+    }
     
 
     displayStates() {
@@ -173,12 +189,16 @@ class surveyPage extends Component {
                     "\nQ12: ", this.state.question_12,
                     "\nQ13: ", this.state.question_13,
                     "\nQ14: ", this.state.question_14,
-                    "\nQ15: ", this.state.question_15)
+                    "\nQ15: ", this.state.question_15,
+                    "\nQ16: ", this.state.question_16,
+                    "\nQ17: ", this.state.question_17)
     }
-    
+
 // This function will handle the submission.
   onSubmit(e) {
-    e.preventDefault();
+
+    // TODO: figure out why prevent default makes <Link> not work
+    // e.preventDefault();
 
     // display the information before the states are changed
     console.log('User Name: ', this.state.user_name, 
@@ -196,7 +216,9 @@ class surveyPage extends Component {
             "\nQ12: ", this.state.question_12,
             "\nQ13: ", this.state.question_13,
             "\nQ14: ", this.state.question_14,
-            "\nQ15: ", this.state.question_15)
+            "\nQ15: ", this.state.question_15,
+            "\nQ16: ", this.state.question_16,
+            "\nQ17: ", this.state.question_17)
 
     // When post request is sent to the create url, axios will add a new record(newperson) to the database.
     const newperson = {
@@ -216,32 +238,39 @@ class surveyPage extends Component {
 		question_13:this.state.question_13,
 		question_14:this.state.question_14,
 		question_15:this.state.question_15,
+        question_16:this.state.question_16,
+        question_17:this.state.question_17,
     };
 
     axios
       .post("http://localhost:5000/record/add", newperson)
-      .then((res) => console.log(res.data));
+      .then((res) => {
+          console.log(res.data);
+      });
 
     // We will empty the state after posting the data to the database
     this.setState({
       user_name: "",
-      question_1: 0,
-      question_2: 0,
+      question_1: "0",
+      question_2: "0",
       question_3: "",
-      question_4: 0,
-      question_5: 0,
+      question_4: "0",
+      question_5: "0",
       question_6: "",
       question_7: "",
       question_8: "",
       question_9: "",
       question_10: "",
-      question_11: 0,
+      question_11: "0",
       question_12: "",
       question_13: "",
       question_14: "",
       question_15: "",
+      question_16: "0",
+      question_17: "",
+
+      submitted: true,
     });
-    
   }
     
     render() {
@@ -255,22 +284,23 @@ class surveyPage extends Component {
             this.state.question_12 !== "" &&
             this.state.question_13 !== "" &&
             this.state.question_14 !== "" &&
-            this.state.question_15 !== ""
+            this.state.question_15 !== "" &&
+            this.state.question_17 !== "" ||
+            this.state.submitted
         );
 
         let button;
-        let note;
         
         if (canSubmit) {
             button =
-                <Link to={"/results/" + this.state.record_id}>
-                    <img 
+                <DelayLink delay= {2000} to={"/results/000000"}>
+                    <img
                     src={submitBtn} 
-                    // onClick={this.onSubmit}
-                    onClick={this.displayStates}
+                    onClick={this.onSubmit}
+                    // onClick={this.displayStates}
                     className="buttonFormat2"
                     />
-                </Link>
+                </DelayLink>
         } else {
             button =
                 <img 
@@ -802,7 +832,7 @@ class surveyPage extends Component {
                             <Row>
                                 <Form.Check
                                 inline
-                                label="<5 Minutes"
+                                label="<5 Times"
                                 name="group7"
                                 type="radio"
                                 value="LessFiveMin"
@@ -817,7 +847,7 @@ class surveyPage extends Component {
                             <Row>
                                 <Form.Check
                                 inline
-                                label="5-10 Minutes"
+                                label="5-10 Times"
                                 name="group7"
                                 type="radio"
                                 value="FiveTenMin"
@@ -832,7 +862,7 @@ class surveyPage extends Component {
                             <Row>
                                 <Form.Check
                                 inline
-                                label="10-20 Minutes"
+                                label="10-20 Times"
                                 name="group7"
                                 type="radio"
                                 value="TenTwentyMin"
@@ -847,7 +877,7 @@ class surveyPage extends Component {
                             <Row>
                                 <Form.Check
                                 inline
-                                label="20+ Minutes"
+                                label="20+ Times"
                                 name="group7"
                                 type="radio"
                                 value="TwentyMoreMin"
@@ -875,7 +905,7 @@ class surveyPage extends Component {
                         stepVal={1}
                     />
 
-                    <br /><br />
+                    <br />
 
                     {/* question #12 */}
                     <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
@@ -1155,8 +1185,75 @@ class surveyPage extends Component {
 
                     <br /><br />
 
+
                 </Container>
                 
+                <br />
+                <h2 className="titleHeader" style={{ marginBottom: '-1.5vw', marginLeft: '1vw'}}><b>
+                    Living
+                </b></h2>
+
+                <Container className="surveyWidth">
+                    {/* question #16 */}
+                    <SurveySlider
+                        number='16)' 
+                        questionName='How many people live in your home (including yourself)?'
+                        sliderValue={this.state.question_16}
+                        updateValue={this.onChangeQ16}
+                        minVal={0}
+                        maxVal={8}
+                        stepVal={1}
+                    />
+
+                    <br />
+
+                    <Row style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                        <h3 style={{color: '#67ab62'}}><b>
+                            17)&nbsp;
+                        </b></h3> 
+
+                        <h3 style={{color: '#40579a'}}><b>
+                            Do you recycle?
+                        </b></h3>
+                    </Row>
+                    <Container style={{width: '95%', marginLeft: 'auto', marginRight: 'auto'}}>
+                        <div style={{marginLeft: 'auto', marginRight: 'auto'}}>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="Yes"
+                                name="group12"
+                                type="radio"
+                                value="Yes"
+                                checked={this.state.question_17 === 'Yes'}
+                                onChange={this.onChangeQ17}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+                            <Row>
+                                <Form.Check
+                                inline
+                                label="No"
+                                name="group12"
+                                type="radio"
+                                value="No"
+                                checked={this.state.question_17 === 'No'}
+                                onChange={this.onChangeQ17}
+                                style={{
+                                    fontSize: 'x-large',
+                                    color: '#6279bc'
+                                }}
+                                />
+                            </Row>
+
+                            <br /><br />
+                        </div>
+                    </Container>
+
+                </Container>
                 <br /><br />
 
                 {/* displays the correct button depending on if the user submitted all required fields or not */}
