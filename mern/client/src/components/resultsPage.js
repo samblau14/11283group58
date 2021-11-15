@@ -356,7 +356,7 @@ class resultsPage extends Component {
         return (
             <div>
 
-            <Container style={{marginTop: '10vh'}} ref={(el) => (this.componentRef = el)}>
+            <Container style={{marginTop: '8%'}} ref={(el) => (this.componentRef = el)}>
                 <Row>
                     <h1 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
                         Hello, {name}! <br/>
@@ -364,37 +364,34 @@ class resultsPage extends Component {
                     </b></h1> 
                 </Row>
 
-                <Box className='resultsBox'>
+                <Container className='resultsBox'>
                     {/* Footer */}
                     <h4 
                     style=
                         {{
                             color: '#c0c4eb',
-                            padding: '1.5vh',
+                            padding: '2%',
                             position: 'relative',
                             left: '0%',
-                            bottom: '-129vh',
+                            bottom: '-94%',
                         }}
                     >
                         World Like Me || Team Everest
                     </h4>
 
-                    <h1 style={{color: '#c0c4eb', marginLeft: '4vh', marginRight: 'auto', textAlign: 'left'}}>
+                    <h1 style={{color: '#c0c4eb', marginLeft: '3%', marginRight: 'auto', textAlign: 'left'}}>
                         If everyone in the world shared the same lifestyle as you,
                     </h1>
                     <Row>
-                        <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '2vh', textAlign: 'right', marginTop: '6vh'}}>
-                            the world's ecological footprint would be&nbsp;
-                        </h1>
-                        <h1 style={{color: '#ffffff', textAlign: 'left', marginRight: '9vh', marginTop: '4vh', fontSize: '7vh'}}>
-                            {this.state.num_USA_percent}%
+                        <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '5%', textAlign: 'right', marginTop: '3%'}}>
+                            the world's ecological footprint would be <b style={{color: '#ffffff'}}>{this.state.num_USA_percent}%</b>
                         </h1>
                     </Row>
-                    <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '10vh', textAlign: 'right'}}>
+                    <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '5%', textAlign: 'right'}}>
                         of the amount it currently is
                     </h1>
 
-                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '10vh', textAlign: 'center', fontSize: '4vh'}}>
+                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '7%', textAlign: 'center', fontSize: '250%'}}>
                         <Col>
                             Water Usage
                             <Box>
@@ -417,7 +414,7 @@ class resultsPage extends Component {
                         </Col>
                     </Row>
 
-                    <Row style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: 'auto', marginTop: '-4vh', fontSize: '4vh', padding: '15vh'}}>
+                    <Row style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: 'auto', marginTop: '-2%', fontSize: '200%', padding: '10%'}}>
                         <Col style={{textAlign: 'left'}}>
                             To most quickly reduce
                             <br />
@@ -431,7 +428,7 @@ class resultsPage extends Component {
                             friendly practice is a lack of:
                         </Col>
                     </Row>
-                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '-14vh', textAlign: 'center', fontSize: '4vh'}}>
+                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '-10%', textAlign: 'center', fontSize: '200%'}}>
                         <Col>
                             [WIP]
                         </Col>
@@ -440,7 +437,7 @@ class resultsPage extends Component {
                         </Col>
                     </Row>
 
-                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '-4vh', fontSize: '3vh', padding: '15vh', textAlign: 'center'}}>
+                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', fontSize: '200%', padding: '5%', textAlign: 'center'}}>
                         <Col>
                             Relative to the USA, you would use {this.state.num_USA_percent}% of the current carbon footprint
                         </Col>
@@ -452,7 +449,7 @@ class resultsPage extends Component {
                         </Col>
                     </Row>
 
-                </Box>
+                </Container>
 
                 <Row>
                     <h2 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
@@ -460,7 +457,7 @@ class resultsPage extends Component {
                     </b></h2> 
                 </Row>
 
-                <Row style={{marginBottom: '-1vh'}}>
+                <Row style={{marginBottom: '1%'}}>
                     <Col>
                         <h3 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'right'}}>
                             Print your results
@@ -486,8 +483,8 @@ class resultsPage extends Component {
                         </h3>
                     </Col>
                     <Col>
-                        <h4 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left', marginTop: '2vh'}}>
-                            <input value='worldlikeme.com' readOnly style={{outline: 'none', border: '0', padding: '1.3vh', marginRight: '1.5vh'}}/>
+                        <h4 style={{color: '#40579a', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left', marginTop: '2%'}}>
+                            <input value='worldlikeme.com' readOnly style={{outline: 'none', border: '0', padding: '1.5%', marginRight: '1.5%'}}/>
                             <button 
                                 className='hereButtons'
                                 onClick={() => {navigator.clipboard.writeText("worldlikeme.com")}}
