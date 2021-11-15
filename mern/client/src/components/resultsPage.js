@@ -41,6 +41,8 @@ class resultsPage extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+
+        window.scrollTo(0, 0);
     }
 
     render() {

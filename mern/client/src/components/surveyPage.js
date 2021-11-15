@@ -53,7 +53,7 @@ class surveyPage extends Component {
 
         this.state = {
             user_name: "",
-            data_id: '012345',
+            data_id: 'default',
             question_1: "0",
             question_2: "0",
             question_3: "",
@@ -200,9 +200,6 @@ class surveyPage extends Component {
     // TODO: figure out why prevent default makes <Link> not work
     // e.preventDefault();
 
-    window.scrollTo(0, 0);
-    let resData;
-
     // display the information before the states are changed
     console.log('User Name: ', this.state.user_name, 
             "\nQ1: ", this.state.question_1,
@@ -248,9 +245,7 @@ class surveyPage extends Component {
     axios
       .post("http://localhost:5000/record/add", newperson)
       .then((res) => {
-          console.log(typeof res.data);
-
-          resData = res.data;
+          console.log(res.data);
       });
 
     // We will empty the state after posting the data to the database
@@ -298,7 +293,7 @@ class surveyPage extends Component {
         
         if (canSubmit) {
             button =
-                <DelayLink delay= {2000} to={"/results/" + this.state.data_id}>
+                <DelayLink delay= {2000} to={"/results/000000"}>
                     <img
                     src={submitBtn} 
                     onClick={this.onSubmit}
