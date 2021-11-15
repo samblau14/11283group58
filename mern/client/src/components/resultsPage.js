@@ -27,11 +27,37 @@ class resultsPage extends Component {
         this.getIdentifier = this.getIdentifier.bind(this);
         this.getRecords = this.getRecords.bind(this);
         this.getRecordData = this.getRecordData.bind(this);
+        this.calcData = this.calcData.bind(this);
+        this.calcFinalData = this.calcFinalData.bind(this);
 
         this.state = {
             records: [],
             survey_ID: "",
             person_name: "",
+            question_1: "0",
+            question_2: "0",
+            question_3: "",
+            question_4: "0",
+            question_5: "0",
+            question_6: "",
+            question_7: "",
+            question_8: "",
+            question_9: "",
+            question_10: "",
+            question_11: "0",
+            question_12: "",
+            question_13: "",
+            question_14: "",
+            question_15: "",
+            question_16: "1",
+            question_17: "",
+
+            water_consumption: 0,
+            carbon_footprint: 0,
+
+            num_earths_percent: 0,
+            num_florida_percent: 0,
+            num_USA_percent: 0,
           };
     }
 
@@ -73,11 +99,248 @@ class resultsPage extends Component {
             .then((response) => {
                 this.setState({
                     person_name: response.data.user_name,
-                });
+                    question_1: response.data.question_1,
+                    question_2: response.data.question_2,
+                    question_3: response.data.question_3,
+                    question_4: response.data.question_4,
+                    question_5: response.data.question_5,
+                    question_6: response.data.question_6,
+                    question_7: response.data.question_7,
+                    question_8: response.data.question_8,
+                    question_9: response.data.question_9,
+                    question_10: response.data.question_10,
+                    question_11: response.data.question_11,
+                    question_12: response.data.question_12,
+                    question_13: response.data.question_13,
+                    question_14: response.data.question_14,
+                    question_15: response.data.question_15,
+                    question_16: response.data.question_16,
+                    question_17: response.data.question_17,
+                }, this.calcData);
             })
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    calcData() {
+        let HOUSEval, DIETval, RECYCLEval, DOMESTICval, INTERNATval, CARTYPEval, BUSval
+        let SHOWERval, BATHval, SINKval, TOILETval, DISHval, LAUNDRYval, POOLval, CARval;
+
+        // calculating carbon footprint
+        let HOUSEoccupants = parseInt(this.state.question_16);
+        switch(HOUSEoccupants) {
+            case 1:
+                HOUSEval = 3.22;
+                break;
+            case 2:
+                HOUSEval = 0.912;
+                break;
+            case 3:
+                HOUSEval = -0.498;
+                break;
+            case 4:
+                HOUSEval = -1.198;
+                break;
+            case 5:
+                HOUSEval = -1.668;
+                break;
+            case 6:
+                HOUSEval = -2.298;
+                break;
+        }
+
+        switch(this.state.question_6) {
+            case "HighMeat":
+                DIETval = 0.8;
+                break;
+            case "AverageMeat":
+                DIETval = 0;
+                break;
+            case "Pescatarian":
+                DIETval = -0.6;
+                break;
+            case "Vegetarian":
+                DIETval = -0.8;
+                break;
+            case "Vegan":
+                DIETval = -1.0;
+                break;
+        }
+
+        switch(this.state.question_17) {
+            case "Yes":
+                RECYCLEval = 0;
+                break;
+            case "No":
+                RECYCLEval = -0.132;
+                break;
+        }
+
+        DOMESTICval = (parseInt(this.state.question_1) - 1) * 805 * (0.000257);
+        INTERNATval = (parseInt(this.state.question_2) - 1) * 2735 * (0.000113);
+
+        let CARaverage = 24300;
+        let CARhour = parseInt(this.state.question_4);
+        switch(this.state.question_3) {
+            case "None":
+                CARTYPEval = 0;
+                break;
+            case "GasCar":
+                CARTYPEval = ((CARhour * 52.1429 * 60) - CARaverage) * 0.0002;
+                break;
+            case "Truck":
+                CARTYPEval = ((CARhour * 52.1429 * 60) - CARaverage) * 0.00028;
+                break;
+            case "Hybrid":
+                CARTYPEval = ((CARhour * 52.1429 * 60) - CARaverage) * 0.00012;
+                break;
+            case "Electric":
+                CARTYPEval = ((CARhour * 52.1429 * 60) - CARaverage) * 0.00006;
+                break;
+        }
+
+        BUSval = (parseInt(this.state.question_5)) * 52.1429 * 21 * 0.00003728;
+
+        // calculating water usage
+        let SHOWERLength;
+        switch(this.state.question_7) {
+            case "LessFiveMin":
+                SHOWERLength = 2.5;
+                break;
+            case "FiveTenMin":
+                SHOWERLength = 7.5;
+                break;
+            case "TenTwentyMin":
+                SHOWERLength = 15.0;
+                break;
+            case "TwentyMoreMin":
+                SHOWERLength = 30.0;
+                break;
+        }
+        switch(this.state.question_8)
+        {
+            case "MultTimes":
+                SHOWERval = SHOWERLength * 5 * 2.5;
+                break;
+            case "Once":
+                SHOWERval = SHOWERLength * 5 * 1.0;
+                break;
+            case "EveryFew":
+                SHOWERval = SHOWERLength * 5 * 0.33;
+                break;
+        }
+
+        switch(this.state.question_9)
+        {
+            case "Daily":
+                BATHval = 35;
+                break;
+            case "Weekly":
+                BATHval = 5;
+                break;
+            case "Monthly":
+                BATHval = 2.917;
+                break;
+            case "Yearly":
+                BATHval = 0.0959;
+                break;
+            case "Never":
+                BATHval = 0;
+                break;
+        }
+
+        switch(this.state.question_10)
+        {
+            case "LessFiveMin":
+                SINKval = 7.5;
+                break;
+            case "FiveTenMin":
+                SINKval = 17.5;
+                break;
+            case "TenTwentyMin":
+                SINKval = 37.5;
+                break;
+            case "TwentyMoreMin":
+                SINKval = 62.5;
+                break;
+        }
+
+        TOILETval = parseInt(this.state.question_11) * 5;
+
+        switch(this.state.question_12)
+        {
+            case "Hand":
+                DISHval = 27;
+                break;
+            case "Dishwasher":
+                DISHval = 15;
+                break;
+            case "Neither":
+                DISHval = 0;
+                break;
+        }
+
+        switch(this.state.question_13)
+        {
+            case "Daily":
+                LAUNDRYval = 41;
+                break;
+            case "Weekly":
+                LAUNDRYval = 5.857;
+                break;
+            case "BiWeekly":
+                LAUNDRYval = 2.9286;
+                break;
+            case "Monthly":
+                LAUNDRYval = 1.34793;
+                break;
+        }
+
+        switch(this.state.question_14)
+        {
+            case "Yes":
+                POOLval = 32.8764;
+                break;
+            case "No":
+                POOLval = 0;
+                break;
+        }
+
+        switch(this.state.question_15)
+        {
+            case "Never":
+                CARval = 0;
+                break;
+            case "Weekly":
+                CARval = 14.2857;
+                break;
+            case "Monthly":
+                CARval = 3.2876;
+                break;
+            case "Biannually":
+                CARval = 0.548;
+                break;
+            case "Annually":
+                CARval = 0.274;
+                break;
+        }
+
+        let CARBON = 15.6 + HOUSEval + DIETval + RECYCLEval + DOMESTICval + INTERNATval + CARTYPEval + BUSval;
+        let WATER = SHOWERval + BATHval + SINKval + TOILETval + DISHval + LAUNDRYval + POOLval + CARval;
+
+        this.setState ({
+            carbon_footprint: CARBON.toFixed(2),
+            water_consumption: WATER.toFixed(2),
+        }, this.calcFinalData);
+    }
+
+    calcFinalData() {
+        this.setState ({
+            num_earths_percent: Math.floor((this.state.carbon_footprint / 4.97) * 100),
+            num_florida_percent: Math.floor((this.state.carbon_footprint / 10.764) * 100),
+            num_USA_percent: Math.floor((this.state.carbon_footprint / 15.6) * 100),
+        });
     }
 
     render() {
@@ -124,52 +387,45 @@ class resultsPage extends Component {
                             the world's ecological footprint would be&nbsp;
                         </h1>
                         <h1 style={{color: '#ffffff', textAlign: 'left', marginRight: '9vh', marginTop: '4vh', fontSize: '7vh'}}>
-                            [number]%
+                            {this.state.num_USA_percent}%
                         </h1>
                     </Row>
                     <h1 style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: '10vh', textAlign: 'right'}}>
-                        as large as it is now
+                        of the amount it currently is
                     </h1>
 
                     <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '10vh', textAlign: 'center', fontSize: '4vh'}}>
                         <Col>
-                            Water Consumption
+                            Water Usage
                             <Box>
-                                <img
-                                    src={textGraph}
-                                    style={{width: '100%'}}
-                                />
+                                <b>
+                                    {this.state.water_consumption} GALLONS
+                                </b>
+                                <br /> 
+                                per day
                             </Box>
                         </Col>
                         <Col>
-                            Carbon Emmission
+                            Carbon Footprint
                             <Box>
-                                <img
-                                    src={textGraph}
-                                    style={{width: '100%'}}
-                                />
-                            </Box>
-                        </Col>
-                        <Col>
-                            Waste
-                            <Box>
-                                <img
-                                    src={textGraph}
-                                    style={{width: '100%'}}
-                                />
+                                <b>
+                                    {this.state.carbon_footprint} TONS
+                                </b>
+                                <br /> 
+                                of CO2e / year
                             </Box>
                         </Col>
                     </Row>
 
-                    <Row style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: 'auto', marginTop: '-4vh', textAlign: 'left', fontSize: '4vh', padding: '15vh'}}>
-                        <Col>
+                    <Row style={{color: '#c0c4eb', marginLeft: 'auto', marginRight: 'auto', marginTop: '-4vh', fontSize: '4vh', padding: '15vh'}}>
+                        <Col style={{textAlign: 'left'}}>
                             To most quickly reduce
                             <br />
                             your carbon footprint,
                             <br />
                             try reducing:
                         </Col>
-                        <Col>
+                        <Col style={{textAlign: 'right'}}>
                             Your most environmentally
                             <br /> 
                             friendly practice is a lack of:
@@ -177,10 +433,22 @@ class resultsPage extends Component {
                     </Row>
                     <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '-14vh', textAlign: 'center', fontSize: '4vh'}}>
                         <Col>
-                            [STAT 1]
+                            [WIP]
                         </Col>
                         <Col>
-                            [STAT 2]
+                            [WIP]
+                        </Col>
+                    </Row>
+
+                    <Row style={{color: '#ffffff', marginLeft: 'auto', marginRight: 'auto', marginTop: '-4vh', fontSize: '3vh', padding: '15vh', textAlign: 'center'}}>
+                        <Col>
+                            Relative to the USA, you would use {this.state.num_USA_percent}% of the current carbon footprint
+                        </Col>
+                        <Col>
+                            Relative to Florida, you would use {this.state.num_florida_percent}% of the current carbon footprint
+                        </Col>
+                        <Col>
+                            Relative to the world, you would use {this.state.num_earths_percent}% of the current carbon footprint
                         </Col>
                     </Row>
 

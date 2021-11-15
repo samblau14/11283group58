@@ -47,6 +47,7 @@ const Credits = () =>
                         <b>Rachel West</b>
                         </Col>
                     </Row>
+                    <br />
 
                 </h2>
             </div>
@@ -141,6 +142,11 @@ const Credits = () =>
             <br /><br />
             <b>Each value obtained from the following categories are added together and compared to the average use number at the top of this section.</b>
             </h2></div>
+
+            <br />
+            <h1 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}><b>
+                Thank you for your partipation!
+            </b></h1>
         </div>
     );
 };

@@ -69,7 +69,7 @@ class surveyPage extends Component {
             question_13: "",
             question_14: "",
             question_15: "",
-            question_16: "0",
+            question_16: "1",
             question_17: "",
 
             records: [],
@@ -310,10 +310,16 @@ class surveyPage extends Component {
                 </DelayLink>
         } else {
             button =
-                <img 
-                src={submitBtn} 
-                className="buttonFormatGrayed"
-                />
+                <div>
+                    <img 
+                    src={submitBtn} 
+                    className="buttonFormatGrayed"
+                    />
+                    <br />
+                    <h4 style={{color: '#67ab62', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}}>
+                        please fill out all fields to submit
+                    </h4>
+                </div>
         }
 
         return (
@@ -1207,8 +1213,8 @@ class surveyPage extends Component {
                         questionName='How many people live in your home (including yourself)?'
                         sliderValue={this.state.question_16}
                         updateValue={this.onChangeQ16}
-                        minVal={0}
-                        maxVal={8}
+                        minVal={1}
+                        maxVal={6}
                         stepVal={1}
                     />
 
