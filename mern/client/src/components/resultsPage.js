@@ -369,7 +369,7 @@ class resultsPage extends Component {
 		usa_str = "x the average American's current carbon footprint"
 		usa_num = this.state.num_USA_percent / 100;
 		}
-		if (this.state.num_USA_percent < 100) {
+		if (this.state.num_florida_percent < 100) {
 		florida_str = "% less than the average Floridian's current carbon footprint! Great job!"
 		florida_num = 100 - this.state.num_florida_percent;
 		}
@@ -377,7 +377,7 @@ class resultsPage extends Component {
 		florida_str = "x the average Floridian's current carbon footprint"
 		florida_num = this.state.num_florida_percent / 100;
 		}
-		if (this.state.num_USA_percent < 100) {
+		if (this.state.num_earths_percent < 100) {
 		earth_str = "% less than the average human's current carbon footprint! Great job!"
 		earth_num = 100 - this.state.num_earths_percent;
 		}
