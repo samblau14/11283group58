@@ -18,7 +18,6 @@ Open terminal and navigate to the `11283group58/mern/client` folder
 Run the following commands in a terminal (These are all of the dependencies)
 ```
 npm install mongodb express cors dotenv
-npm install -g nodemon
 npm install --save react-bootstrap bootstrap@3
 npm install --save react-router-dom
 npm install axios
