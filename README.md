@@ -1,5 +1,6 @@
 # **World Like Me:**
 What if everyone in the world lived like me?
+
 Authors: Sam Blau, Lily Maloney, Rachel West, Nick Strawser
 
 ## Overview:
