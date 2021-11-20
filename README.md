@@ -1,14 +1,14 @@
-#World Like Me:
-##What if everyone in the world lived like me?
+# **World Like Me:**
+## What if everyone in the world lived like me?
 
-##Authors: Sam Blau, Lily Maloney, Rachel West, Nick Strawser
+## Authors: Sam Blau, Lily Maloney, Rachel West, Nick Strawser
 
-##Overview:
+## Overview:
 World Like Me is a webapp with the goal of informing users of the environmental impact of their daily living habits and providing guidance on how to reduce that impact.
 
 A user is brought first to the landing page where they are able to read a short mission statement on World Like Me and then click to begin the survey. They are then brought to the survey page where they must answer all questions before submitting and being taken to the results and analytics page. The results and analytics page displays the user’s carbon footprint and daily water usage, as well as comparing it to global and national averages. The user is told how many Earths would be needed to support their lifestyle based on global carbon footprint values. 
 
-##Procedures
+## Procedures
 Download or clone the '11283group58' repository
 Install [Node](https://nodejs.org/en/) (Make sure Node package manager (npm) is installed along with node and Node has a version of at least 16.4.0)
 Open terminal and navigate to the `11283group58/mern/client` folder
