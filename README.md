@@ -42,8 +42,6 @@ The website will now automatically open in your browser (Default is localhost:30
 ## Roadmap
 Features we are in the process of or planning to implement:
 - Graph on analytics page that displays user carbon footprint and water usage compared to continent and global averages.
-- Download button on analytics page that downloads a formatted analytics page that the user can save
-- Sharable link on the analytics page that is copied with the press of the ‘copy’ button
 - Feedback on what the user can change in their lifestyle that will have the greatest impact on their carbon footprint
 - Feedback on what the user’s best lifestyle habit is
 - Ability for users to login with twitter to save their survey results and view past survey answers and analytics
