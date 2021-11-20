@@ -10,8 +10,11 @@ A user is brought first to the landing page where they are able to read a short 
 
 ## Procedures
 Download or clone the '11283group58' repository
+
 Install [Node](https://nodejs.org/en/) (Make sure Node package manager (npm) is installed along with node and Node has a version of at least 16.4.0)
+
 Open terminal and navigate to the `11283group58/mern/client` folder
+
 Run the following commands in a terminal (These are all of the dependencies)
 ```
 npm install mongodb express cors dotenv
