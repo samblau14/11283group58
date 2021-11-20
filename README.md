@@ -12,7 +12,7 @@ These results are taken from calculations done with the user’s survey response
 ## Procedures
 How to get the project running:
 
-Download or clone the '11283group58' repository
+Download or clone the `11283group58` repository
 
 Install [Node](https://nodejs.org/en/) (Make sure Node package manager (npm) is installed along with node and Node has a version of at least 16.4.0)
 
