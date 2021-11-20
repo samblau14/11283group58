@@ -1,7 +1,7 @@
 # **World Like Me:**
 What if everyone in the world lived like me?
 
-### Authors: Sam Blau, Lily Maloney, Rachel West, Nick Strawser
+Authors: Sam Blau, Lily Maloney, Rachel West, Nick Strawser
 
 ## Overview:
 World Like Me is a webapp with the goal of informing users of the environmental impact of their daily living habits and providing guidance on how to reduce that impact.
